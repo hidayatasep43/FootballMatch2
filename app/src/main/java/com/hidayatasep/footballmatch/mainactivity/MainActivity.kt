@@ -3,6 +3,7 @@ package com.hidayatasep.footballmatch.mainactivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import app.helper.LocalPreferences
 import com.google.gson.Gson
 import com.hidayatasep.footballmatch.R
 import com.hidayatasep.latihan2.ApiRepository
@@ -36,11 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         val request = ApiRepository()
         val gson = Gson()
+        val localPreferences = LocalPreferences.getInstance(this)
 
         listMatchFragmentPrev = ListMatchFragment.newInstance()
         listMatchFragmentNext = ListMatchFragment.newInstance()
-        ListMatchPresenterPrev = ListMatchPresenter(listMatchFragmentPrev, request, gson, TYPE_LIST_PREV)
-        ListMatchPresenterNext = ListMatchPresenter(listMatchFragmentNext, request, gson, TYPE_LIST_NEXT)
+        ListMatchPresenterPrev = ListMatchPresenter(listMatchFragmentPrev, request, gson, localPreferences, TYPE_LIST_PREV)
+        ListMatchPresenterNext = ListMatchPresenter(listMatchFragmentNext, request, gson, localPreferences, TYPE_LIST_NEXT)
 
         pagerAdapter = MainPagerAdapter(supportFragmentManager, listMatchFragmentPrev, listMatchFragmentNext)
         viewPager.adapter = pagerAdapter

@@ -9,6 +9,7 @@ import com.hidayatasep.footballmatch.BuildConfig
  */
 object TheSportDBApi {
 
+    //English Premier League
     fun getTeams(league: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
                 .appendPath("api")

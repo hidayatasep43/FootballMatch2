@@ -1,11 +1,14 @@
 package app.data
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by hidayatasep43 on 9/16/2018.
  * hidayatasep43@gmail.com
  */
+@Parcelize
 data class Event(
 
         @SerializedName("idEvent")
@@ -100,4 +103,4 @@ data class Event(
 
         @SerializedName("idAwayTeam")
         var idAwayTeam: String? = null
-)
+) : Parcelable

@@ -1,6 +1,7 @@
 package com.hidayatasep.footballmatch.mainactivity
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
@@ -11,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import app.data.Event
 import com.hidayatasep.footballmatch.R
-
+import com.hidayatasep.footballmatch.detailmatch.DetailMatchActivity
 
 class ListMatchFragment : Fragment(), ListMatchView {
 
@@ -30,7 +31,7 @@ class ListMatchFragment : Fragment(), ListMatchView {
         mRecyclerView = view.findViewById(R.id.recycler_view)
         mRecyclerView.layoutManager = LinearLayoutManager(context)
         mAdapter = ListMatchAdapter(context!!, events, {
-
+            event: Event -> eventItemClicked(event)
         })
         mRecyclerView.adapter = mAdapter
 
@@ -40,6 +41,12 @@ class ListMatchFragment : Fragment(), ListMatchView {
         mListMatchPresenter.getEventsList("4328")
 
         return view
+    }
+
+    private fun eventItemClicked(event: Event) {
+        val intent = Intent(context, DetailMatchActivity::class.java)
+        intent.putExtra("event", event)
+        requireActivity().startActivity(intent)
     }
 
     override fun showLoading() {

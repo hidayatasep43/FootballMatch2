@@ -1,4 +1,6 @@
-package app.data
+package app.webservice
+
+import app.data.Event
 
 /**
  * Created by hidayatasep43 on 9/16/2018.
