@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,4 +7,318 @@
     android:layout_height="match_parent"
     tools:context=".detailmatch.DetailMatchActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        >
+        <TextView
+            android:id="@+id/tv_time_match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="17sp"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="Saturday, 29 Januari 2010"
+            />
+
+        <TextView
+            android:id="@+id/tv_vs_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="22sp"
+            android:textColor="@color/color_primary_text"
+            android:text="@string/vs_label"
+            android:layout_below="@id/tv_time_match"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_score_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_time_match"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="35dp"
+            android:layout_toStartOf="@id/tv_vs_label"
+            android:textColor="@color/color_primary_text"
+            android:textSize="30sp"
+            tools:text="5"
+            />
+
+        <TextView
+            android:id="@+id/tv_score_away"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textColor="@color/color_primary_text"
+            android:layout_below="@id/tv_time_match"
+            android:layout_marginTop="35dp"
+            android:layout_toEndOf="@id/tv_vs_label"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            tools:text="1"
+            />
+
+        <ImageView
+            android:id="@+id/image_club_home"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/tv_time_match"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            tools:src="@drawable/img_chelsea"
+            />
+
+        <ImageView
+            android:id="@+id/image_club_away"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/tv_time_match"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_alignParentEnd="true"
+            tools:src="@drawable/img_city"
+            />
+
+        <TextView
+            android:id="@+id/tv_club_home"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@id/image_club_home"
+            android:layout_marginTop="4dp"
+            tools:text="Huddersfield Town"
+            />
+
+        <TextView
+            android:id="@+id/tv_club_away"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@id/image_club_away"
+            android:layout_marginTop="4dp"
+            android:layout_alignParentEnd="true"
+            tools:text="Manchester City"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/tv_club_home"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BDBDBD"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                >
+                <TextView
+                    android:id="@+id/tvDetailGoalsHome"
+                    style="@style/DescriptionText"
+                    tools:text="5':Andre Gray;"
+                    />
+                <TextView
+                    android:text="@string/goals_label"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvDetailGoalsAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="35':Romelu Lukaku;38':Chris Smalling;"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvShootHome"
+                    style="@style/DescriptionText"
+                    tools:text="7"
+                    />
+                <TextView
+                    android:text="Shoot"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvShootAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="10"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BDBDBD"
+                android:layout_marginTop="16dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                >
+                <TextView
+                    android:id="@+id/tvDetailFormationHome"
+                    style="@style/DescriptionText"
+                    tools:text="5':Andre Gray;"
+                    />
+                <TextView
+                    android:text="Formation"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvDetailFormationAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="35':Romelu Lukaku;38':Chris Smalling;"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvGoalKeeperHome"
+                    style="@style/DescriptionText"
+                    tools:text="7"
+                    />
+                <TextView
+                    android:text="Goal Keeper"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvGoalKeeperAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="10"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvDefendHome"
+                    style="@style/DescriptionText"
+                    tools:text="7"
+                    />
+
+                <TextView
+                    style="@style/DescriptionLabelText"
+                    android:layout_height="match_parent"
+                    android:text="Defend"/>
+                <TextView
+                    android:id="@+id/tvDefendAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="10"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvMidfieldHome"
+                    style="@style/DescriptionText"
+                    tools:text="7"
+                    />
+                <TextView
+                    android:text="Midfield"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvMidfieldAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="10"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvForwardHome"
+                    style="@style/DescriptionText"
+                    tools:text="7"
+                    />
+                <TextView
+                    android:text="Forward"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvForwardAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="10"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvSubstitutesHome"
+                    style="@style/DescriptionText"
+                    tools:text="7"
+                    />
+                <TextView
+                    android:text="Substitutes"
+                    style="@style/DescriptionLabelText"
+                    />
+                <TextView
+                    android:id="@+id/tvSubstitutesAway"
+                    android:gravity="end"
+                    style="@style/DescriptionText"
+                    tools:text="10"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</android.support.v4.widget.NestedScrollView>

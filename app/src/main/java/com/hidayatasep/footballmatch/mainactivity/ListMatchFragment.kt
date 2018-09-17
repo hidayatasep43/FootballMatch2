@@ -46,7 +46,7 @@ class ListMatchFragment : Fragment(), ListMatchView {
     private fun eventItemClicked(event: Event) {
         val intent = Intent(context, DetailMatchActivity::class.java)
         intent.putExtra("event", event)
-        requireActivity().startActivity(intent)
+        startActivity(intent)
     }
 
     override fun showLoading() {

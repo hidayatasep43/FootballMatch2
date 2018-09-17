@@ -78,16 +78,16 @@ data class Event(
         var awayLineupForward: String? = null,
 
         @SerializedName("strAwayLineupSubstitutes")
-        var AwayLineupSubstitutes: String? = null,
+        var awayLineupSubstitutes: String? = null,
 
         @SerializedName("strAwayFormation")
         var awayFormation: String? = null,
 
         @SerializedName("intHomeShots")
-        var homeShots: String? = null,
+        var homeShots: String? = "-",
 
         @SerializedName("intAwayShots")
-        var awayShots: String? = null,
+        var awayShots: String? = "-",
 
         @SerializedName("dateEvent")
         var dateEvent: String? = null,
@@ -99,8 +99,8 @@ data class Event(
         var strTime: String? = null,
 
         @SerializedName("idHomeTeam")
-        var idHomeTeam: String? = null,
+        var idHomeTeam: String,
 
         @SerializedName("idAwayTeam")
-        var idAwayTeam: String? = null
+        var idAwayTeam: String
 ) : Parcelable
