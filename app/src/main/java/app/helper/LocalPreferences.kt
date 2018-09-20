@@ -33,23 +33,6 @@ class LocalPreferences private constructor(context: Context) {
         return mPref.getBoolean(key, defaultValue)
     }
 
-    fun getString(key: String): String? {
-        return mPref.getString(key, null)
-    }
-
-    /**
-     * Remove keys from SharedPreferences.
-     *
-     * @param keys The enum of the key(s) to be removed.
-     */
-    fun remove(vararg keys: String) {
-        doEdit()
-        for (key in keys) {
-            mEditor!!.remove(key)
-        }
-        doCommit()
-    }
-
     private fun doEdit() {
         if (mEditor == null) {
             mEditor = mPref.edit()

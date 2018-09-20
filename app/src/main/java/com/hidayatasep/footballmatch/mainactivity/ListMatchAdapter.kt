@@ -40,7 +40,7 @@ class ListMatchAdapter (private val context: Context,
             itemView.tvHomeScore.text = event.homeScore
             itemView.tvAwayClub.text = event.awayTeam
             itemView.tvAwayScore.text = event.awayScore
-            itemView.tvTimeMatch.text = event.dateEvent
+            itemView.tvTimeMatch.text = event.strDateEvent
             itemView.setOnClickListener {
                 listener(event)
             }

@@ -68,7 +68,6 @@
             android:layout_height="100dp"
             android:layout_below="@id/tv_time_match"
             android:layout_marginTop="@dimen/activity_vertical_margin"
-            tools:src="@drawable/img_chelsea"
             />
 
         <ImageView
@@ -78,7 +77,6 @@
             android:layout_below="@id/tv_time_match"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_alignParentEnd="true"
-            tools:src="@drawable/img_city"
             />
 
         <TextView

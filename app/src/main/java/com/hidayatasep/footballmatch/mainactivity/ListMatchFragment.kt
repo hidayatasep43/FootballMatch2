@@ -28,6 +28,7 @@ class ListMatchFragment : Fragment(), ListMatchView {
         val view: View = inflater.inflate(R.layout.fragment_list_match, container, false)
 
         mSwipeRefreshLayout = view.findViewById(R.id.swiperefresh)
+        mSwipeRefreshLayout.setColorSchemeColors(resources.getColor(R.color.colorPrimary))
         mRecyclerView = view.findViewById(R.id.recycler_view)
         mRecyclerView.layoutManager = LinearLayoutManager(context)
         mAdapter = ListMatchAdapter(context!!, events, {

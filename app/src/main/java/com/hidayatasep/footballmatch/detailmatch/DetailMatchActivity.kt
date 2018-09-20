@@ -2,7 +2,6 @@ package com.hidayatasep.footballmatch.detailmatch
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import app.data.Event
 import app.helper.LocalPreferences
 import app.helper.Utils
@@ -18,8 +17,7 @@ class DetailMatchActivity : AppCompatActivity() {
 
 
         val event = intent.getParcelableExtra<Event>("event")
-        Log.d("DetailMatchActivity", event.toString())
-
+        //Log.d("DetailMatchActivity", event.toString())
 
         tv_time_match.text = event.strDateEvent
         tv_score_home.text = event.homeScore
