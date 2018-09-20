@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pagerAdapter: MainPagerAdapter
     private lateinit var listMatchFragmentPrev: ListMatchFragment
     private lateinit var listMatchFragmentNext: ListMatchFragment
-    private lateinit var ListMatchPresenterPrev: ListMatchPresenter
-    private lateinit var ListMatchPresenterNext: ListMatchPresenter
+    private lateinit var listMatchPresenterPrev: ListMatchPresenter
+    private lateinit var listMatchPresenterNext: ListMatchPresenter
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
 
         listMatchFragmentPrev = ListMatchFragment.newInstance()
         listMatchFragmentNext = ListMatchFragment.newInstance()
-        ListMatchPresenterPrev = ListMatchPresenter(listMatchFragmentPrev, request, gson, localPreferences, TYPE_LIST_PREV)
-        ListMatchPresenterNext = ListMatchPresenter(listMatchFragmentNext, request, gson, localPreferences, TYPE_LIST_NEXT)
+        listMatchPresenterPrev = ListMatchPresenter(listMatchFragmentPrev, request, gson, localPreferences, TYPE_LIST_PREV)
+        listMatchPresenterNext = ListMatchPresenter(listMatchFragmentNext, request, gson, localPreferences, TYPE_LIST_NEXT)
 
         pagerAdapter = MainPagerAdapter(supportFragmentManager, listMatchFragmentPrev, listMatchFragmentNext)
         viewPager.adapter = pagerAdapter
@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        public const val TYPE_LIST_PREV = 1
-        public const val TYPE_LIST_NEXT = 2
+        const val TYPE_LIST_PREV = 1
+        const val TYPE_LIST_NEXT = 2
     }
 
 }

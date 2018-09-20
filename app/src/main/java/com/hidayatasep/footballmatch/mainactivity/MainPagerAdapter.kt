@@ -15,10 +15,15 @@ class MainPagerAdapter (fragmentManager: FragmentManager,
     : FragmentPagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment? {
-        if (position == 0) {
+        /*if (position == 0) {
             return listMatchFragmentPrev
         } else {
             return listMatchFragmentNext
+        }*/
+        return if (position == 0) {
+            listMatchFragmentPrev
+        } else {
+            listMatchFragmentNext
         }
     }
 

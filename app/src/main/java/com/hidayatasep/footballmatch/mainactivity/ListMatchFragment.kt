@@ -4,6 +4,7 @@ package com.hidayatasep.footballmatch.mainactivity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -31,9 +32,9 @@ class ListMatchFragment : Fragment(), ListMatchView {
         mSwipeRefreshLayout.setColorSchemeColors(resources.getColor(R.color.colorPrimary))
         mRecyclerView = view.findViewById(R.id.recycler_view)
         mRecyclerView.layoutManager = LinearLayoutManager(context)
-        mAdapter = ListMatchAdapter(context!!, events, {
+        mAdapter = ListMatchAdapter(context as FragmentActivity, events) {
             event: Event -> eventItemClicked(event)
-        })
+        }
         mRecyclerView.adapter = mAdapter
 
         mSwipeRefreshLayout.setOnRefreshListener {
