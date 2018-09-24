@@ -3,6 +3,8 @@ package com.hidayatasep.footballmatch.mainactivity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.hidayatasep.footballmatch.listfavorite.ListFavoriteFragment
+import com.hidayatasep.footballmatch.listmatch.ListMatchFragment
 
 /**
  * Created by hidayatasep43 on 9/16/2018.
@@ -10,22 +12,21 @@ import android.support.v4.app.FragmentPagerAdapter
  */
 class MainPagerAdapter (fragmentManager: FragmentManager,
                         private val listMatchFragmentPrev: ListMatchFragment,
-                        private val listMatchFragmentNext: ListMatchFragment
-                        )
+                        private val listMatchFragmentNext: ListMatchFragment,
+                        private val listFavoriteFragment: ListFavoriteFragment
+)
     : FragmentPagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment? {
-        /*if (position == 0) {
-            return listMatchFragmentPrev
-        } else {
-            return listMatchFragmentNext
-        }*/
+
         return if (position == 0) {
             listMatchFragmentPrev
-        } else {
+        } else if (position == 1){
             listMatchFragmentNext
+        } else {
+            listFavoriteFragment
         }
     }
 
-    override fun getCount(): Int = 2
+    override fun getCount(): Int = 3
 }

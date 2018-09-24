@@ -1,4 +1,4 @@
-package com.hidayatasep.footballmatch.mainactivity
+package com.hidayatasep.footballmatch.listmatch
 
 import android.util.Log
 import app.data.Team
@@ -6,6 +6,8 @@ import app.helper.LocalPreferences
 import app.webservice.EventResponse
 import app.webservice.TeamResponse
 import com.google.gson.Gson
+import com.hidayatasep.footballmatch.base.BasePresenter
+import com.hidayatasep.footballmatch.mainactivity.MainActivity
 import com.hidayatasep.latihan2.ApiRepository
 import com.hidayatasep.latihan2.TheSportDBApi
 import org.jetbrains.anko.doAsync
@@ -19,11 +21,15 @@ class ListMatchPresenter (private val view: ListMatchView,
                           private val apiRepository: ApiRepository,
                           private val gson: Gson,
                           private val localPreferences: LocalPreferences,
-                          private val typeList: Int) {
+                          private val typeList: Int) : BasePresenter{
 
     init {
         view.setPresenter(this)
         getTeam()
+    }
+
+    override fun start() {
+        getEventsList("4328")
     }
 
     fun getEventsList(idLeaguage: String?) {

@@ -3,13 +3,17 @@
 
     <item
         android:id="@+id/navigation_prev"
-        android:icon="@drawable/baseline_history_24"
+        android:icon="@drawable/ic_history"
         android:title="@string/nav_prev_match"/>
 
     <item
         android:id="@+id/navigation_next"
-        android:icon="@drawable/baseline_event_24"
+        android:icon="@drawable/ic_event"
         android:title="@string/nav_next_match"/>
 
+    <item
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/nav_favorites"/>
 
 </menu>

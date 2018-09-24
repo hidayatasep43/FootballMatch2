@@ -1,4 +1,4 @@
-package com.hidayatasep.footballmatch.mainactivity
+package com.hidayatasep.footballmatch.listmatch
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

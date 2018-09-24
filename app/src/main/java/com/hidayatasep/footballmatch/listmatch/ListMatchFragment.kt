@@ -1,4 +1,4 @@
-package com.hidayatasep.footballmatch.mainactivity
+package com.hidayatasep.footballmatch.listmatch
 
 
 import android.content.Intent
@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import app.data.Event
 import com.hidayatasep.footballmatch.R
+import com.hidayatasep.footballmatch.base.BasePresenter
 import com.hidayatasep.footballmatch.detailmatch.DetailMatchActivity
 
 class ListMatchFragment : Fragment(), ListMatchView {
@@ -32,15 +33,15 @@ class ListMatchFragment : Fragment(), ListMatchView {
         mSwipeRefreshLayout.setColorSchemeColors(resources.getColor(R.color.colorPrimary))
         mRecyclerView = view.findViewById(R.id.recycler_view)
         mRecyclerView.layoutManager = LinearLayoutManager(context)
-        mAdapter = ListMatchAdapter(context as FragmentActivity, events) {
-            event: Event -> eventItemClicked(event)
+        mAdapter = ListMatchAdapter(context as FragmentActivity, events) { event: Event ->
+            eventItemClicked(event)
         }
         mRecyclerView.adapter = mAdapter
 
         mSwipeRefreshLayout.setOnRefreshListener {
-            mListMatchPresenter.getEventsList("4328")
+            mListMatchPresenter.start()
         }
-        mListMatchPresenter.getEventsList("4328")
+        mListMatchPresenter.start()
 
         return view
     }
@@ -66,8 +67,8 @@ class ListMatchFragment : Fragment(), ListMatchView {
         mAdapter.notifyDataSetChanged()
     }
 
-    override fun setPresenter(presenter: ListMatchPresenter) {
-        mListMatchPresenter = presenter
+    override fun setPresenter(presenter: BasePresenter) {
+        mListMatchPresenter = presenter as ListMatchPresenter
     }
 
 
