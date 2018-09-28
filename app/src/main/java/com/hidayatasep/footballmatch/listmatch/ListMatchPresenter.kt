@@ -10,6 +10,9 @@ import com.hidayatasep.footballmatch.base.BasePresenter
 import com.hidayatasep.footballmatch.mainactivity.MainActivity
 import com.hidayatasep.latihan2.ApiRepository
 import com.hidayatasep.latihan2.TheSportDBApi
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
+import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -35,15 +38,14 @@ class ListMatchPresenter (private val view: ListMatchView,
     fun getEventsList(idLeaguage: String?) {
         view.showLoading()
         if (typeList == MainActivity.TYPE_LIST_PREV) {
-            doAsync {
-                val data = gson.fromJson(apiRepository
-                        .doRequest(TheSportDBApi.getPrevMatch(idLeaguage)),
-                        EventResponse::class.java)
-
-                uiThread {
-                    view.dissmissLoading()
-                    view.showTeamList(data.events)
+            async(UI) {
+                val data = bg {
+                    gson.fromJson(apiRepository
+                            .doRequest(TheSportDBApi.getPrevMatch(idLeaguage)),
+                            EventResponse::class.java)
                 }
+                view.showTeamList(data.await().events)
+                view.dissmissLoading()
             }
         } else {
             doAsync {
