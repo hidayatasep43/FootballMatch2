@@ -39,7 +39,6 @@ class MainActivityTest {
         recyclerView.perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(10, click()))
 
-
         onView(withId(R.id.image_club_home)).check(matches(isDisplayed()))
         onView(withId(R.id.image_club_away)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_club_home)).check(matches(isDisplayed()))

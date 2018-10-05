@@ -11,9 +11,9 @@ import com.hidayatasep.footballmatch.listmatch.ListMatchFragment
  * hidayatasep43@gmail.com
  */
 class MainPagerAdapter (fragmentManager: FragmentManager,
-                        private val listMatchFragmentPrev: ListMatchFragment,
-                        private val listMatchFragmentNext: ListMatchFragment,
-                        private val listFavoriteFragment: ListFavoriteFragment
+                        val listMatchFragmentPrev: ListMatchFragment,
+                        val listMatchFragmentNext: ListMatchFragment,
+                        val listFavoriteFragment: ListFavoriteFragment
 )
     : FragmentPagerAdapter(fragmentManager) {
 

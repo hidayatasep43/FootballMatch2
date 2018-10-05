@@ -14,21 +14,20 @@ import android.view.View
 import android.view.ViewGroup
 import app.data.Event
 import com.hidayatasep.footballmatch.R.color.colorAccent
-import com.hidayatasep.footballmatch.base.BasePresenter
 import com.hidayatasep.footballmatch.detailmatch.DetailMatchActivity
 import com.hidayatasep.footballmatch.listmatch.ListMatchAdapter
-import com.hidayatasep.footballmatch.listmatch.ListMatchView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
-class ListFavoriteFragment : Fragment(), ListMatchView,AnkoComponent<Context> {
+class ListFavoriteFragment : Fragment(), ListFavoriteContract.View, AnkoComponent<Context> {
+
+    override lateinit var presenter: ListFavoriteContract.Presenter
 
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private lateinit var mRecyclerView: RecyclerView
-    private lateinit var mListFavoritePresenter: ListFavoritePresenter
     private lateinit var mAdapter: ListMatchAdapter
     private var events: MutableList<Event> = mutableListOf()
 
@@ -40,7 +39,7 @@ class ListFavoriteFragment : Fragment(), ListMatchView,AnkoComponent<Context> {
         }
         mRecyclerView.adapter = mAdapter
         mSwipeRefreshLayout.onRefresh {
-            mListFavoritePresenter.start()
+            presenter.start()
         }
     }
 
@@ -81,9 +80,10 @@ class ListFavoriteFragment : Fragment(), ListMatchView,AnkoComponent<Context> {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        mListFavoritePresenter.start()
+
+    override fun onResume() {
+        super.onResume()
+        presenter.start()
     }
 
     override fun showLoading() {
@@ -100,11 +100,6 @@ class ListFavoriteFragment : Fragment(), ListMatchView,AnkoComponent<Context> {
         events.addAll(data)
         mAdapter.notifyDataSetChanged()
     }
-
-    override fun setPresenter(presenter: BasePresenter) {
-        mListFavoritePresenter = presenter as ListFavoritePresenter
-    }
-
 
     companion object {
 

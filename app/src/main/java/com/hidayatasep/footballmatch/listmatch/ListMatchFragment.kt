@@ -13,14 +13,18 @@ import android.view.View
 import android.view.ViewGroup
 import app.data.Event
 import com.hidayatasep.footballmatch.R
-import com.hidayatasep.footballmatch.base.BasePresenter
 import com.hidayatasep.footballmatch.detailmatch.DetailMatchActivity
 
-class ListMatchFragment : Fragment(), ListMatchView {
+class ListMatchFragment : Fragment(), ListMatchContract.View {
+
+    override lateinit var presenter: ListMatchContract.Presenter
+
+    override var isActive: Boolean = false
+        get() = isAdded
+
 
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private lateinit var mRecyclerView: RecyclerView
-    private lateinit var mListMatchPresenter: ListMatchPresenter
     private lateinit var mAdapter: ListMatchAdapter
     private var events: MutableList<Event> = mutableListOf()
 
@@ -39,9 +43,9 @@ class ListMatchFragment : Fragment(), ListMatchView {
         mRecyclerView.adapter = mAdapter
 
         mSwipeRefreshLayout.setOnRefreshListener {
-            mListMatchPresenter.start()
+            presenter.start()
         }
-        mListMatchPresenter.start()
+        presenter.start()
 
         return view
     }
@@ -65,10 +69,6 @@ class ListMatchFragment : Fragment(), ListMatchView {
         events.clear()
         events.addAll(data)
         mAdapter.notifyDataSetChanged()
-    }
-
-    override fun setPresenter(presenter: BasePresenter) {
-        mListMatchPresenter = presenter as ListMatchPresenter
     }
 
 

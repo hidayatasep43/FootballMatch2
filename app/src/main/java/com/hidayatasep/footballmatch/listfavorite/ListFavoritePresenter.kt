@@ -4,8 +4,6 @@ import android.content.Context
 import app.data.Event
 import app.data.FavoriteEventContract
 import app.data.database
-import com.hidayatasep.footballmatch.base.BasePresenter
-import com.hidayatasep.footballmatch.listmatch.ListMatchView
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
 
@@ -14,18 +12,18 @@ import org.jetbrains.anko.db.select
  * hidayatasep43@gmail.com
  */
 class ListFavoritePresenter(
-        private val context: Context,
-        private val view: ListMatchView) : BasePresenter {
+        val context: Context,
+        val view: ListFavoriteContract.View ) : ListFavoriteContract.Presenter {
 
     init {
-        view.setPresenter(this)
+        view.presenter  = this
     }
 
     override fun start() {
         getFavoriteTeam()
     }
 
-    fun getFavoriteTeam() {
+    private fun getFavoriteTeam() {
         context.database.use {
             view.showLoading()
             val result = select(FavoriteEventContract.TABLE_FAVORITE_EVENT)

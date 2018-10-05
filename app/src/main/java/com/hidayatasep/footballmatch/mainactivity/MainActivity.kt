@@ -53,9 +53,11 @@ class MainActivity : AppCompatActivity() {
         listMatchFragmentPrev = ListMatchFragment.newInstance()
         listMatchFragmentNext = ListMatchFragment.newInstance()
         listFavoriteFragment = ListFavoriteFragment.newInstance()
+
         listMatchPresenterPrev = ListMatchPresenter(listMatchFragmentPrev, request, gson, localPreferences, TYPE_LIST_PREV)
         listMatchPresenterNext = ListMatchPresenter(listMatchFragmentNext, request, gson, localPreferences, TYPE_LIST_NEXT)
         listFavoritePresenter = ListFavoritePresenter(this, listFavoriteFragment)
+
         pagerAdapter = MainPagerAdapter(supportFragmentManager, listMatchFragmentPrev, listMatchFragmentNext, listFavoriteFragment)
         viewPager.adapter = pagerAdapter
 
