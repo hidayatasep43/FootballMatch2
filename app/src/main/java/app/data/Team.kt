@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName
  * hidayatasep43@gmail.com
  */
 data class Team(
+
         @SerializedName("idTeam")
         var teamId: String? = null,
 
@@ -14,5 +15,16 @@ data class Team(
         var teamName: String? = null,
 
         @SerializedName("strTeamBadge")
-        var teamBadge: String? = null
+        var teamBadge: String? = null,
+
+        @SerializedName("intFormedYear")
+        var teamFormedYear: String? = null,
+
+        @SerializedName("strStadium")
+        var teamStadium: String? = null,
+
+        @SerializedName("strDescriptionEN")
+        var teamDescription: String? = null
+
+
 )

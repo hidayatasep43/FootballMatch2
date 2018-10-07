@@ -11,9 +11,7 @@ import com.hidayatasep.footballmatch.base.BaseView
 interface ListFavoriteContract {
 
     interface View : BaseView<Presenter> {
-        fun showLoading()
-        fun dissmissLoading()
-        fun showTeamList(data: List<Event>)
+        fun showEventFavoriteList(data: List<Event>)
     }
 
     interface Presenter : BasePresenter {}

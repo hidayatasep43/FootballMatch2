@@ -29,7 +29,7 @@ class ListFavoritePresenter(
             val result = select(FavoriteEventContract.TABLE_FAVORITE_EVENT)
             val favorite = result.parseList(classParser<Event>())
             view.dissmissLoading()
-            view.showTeamList(favorite)
+            view.showEventFavoriteList(favorite)
         }
     }
 

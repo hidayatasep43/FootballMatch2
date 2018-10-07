@@ -63,7 +63,7 @@ class ListMatchPresenterTest {
 
         presenter.getEventsList(idLeague)
         verify(view).showLoading()
-        verify(view).showTeamList(events)
+        verify(view).showEventList(events)
         verify(view).dissmissLoading()
     }
 }

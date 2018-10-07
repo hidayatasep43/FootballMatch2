@@ -73,7 +73,7 @@ class ListFavoriteFragment : Fragment(), ListFavoriteContract.View, AnkoComponen
                 mRecyclerView = recyclerView {
                     lparams (width = matchParent, height = wrapContent)
                     layoutManager = LinearLayoutManager(ctx)
-                    bottomPadding = dip(70)
+                    bottomPadding = dip(16)
                     clipToPadding = false
                 }
             }
@@ -94,7 +94,7 @@ class ListFavoriteFragment : Fragment(), ListFavoriteContract.View, AnkoComponen
         mSwipeRefreshLayout.isRefreshing = false
     }
 
-    override fun showTeamList(data: List<Event>) {
+    override fun showEventFavoriteList(data: List<Event>) {
         mSwipeRefreshLayout.isRefreshing = false
         events.clear()
         events.addAll(data)

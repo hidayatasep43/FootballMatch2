@@ -13,11 +13,7 @@ interface ListMatchContract {
     interface View : BaseView<Presenter> {
         var isActive: Boolean
 
-        fun showLoading()
-
-        fun dissmissLoading()
-
-        fun showTeamList(data: List<Event>)
+        fun showEventList(data: List<Event>)
     }
 
     interface Presenter : BasePresenter {

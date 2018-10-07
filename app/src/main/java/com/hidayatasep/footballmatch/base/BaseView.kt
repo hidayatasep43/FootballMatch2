@@ -8,4 +8,7 @@ interface BaseView<T> {
 
     var presenter: T
 
+    fun showLoading()
+    fun dissmissLoading()
+
 }

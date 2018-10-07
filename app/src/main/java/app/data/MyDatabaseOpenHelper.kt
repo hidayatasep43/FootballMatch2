@@ -55,10 +55,20 @@ class MyDatabaseOpenHelper(context: Context): ManagedSQLiteOpenHelper(context,
                 FavoriteEventContract.DATE_EVENT_STR to TEXT,
                 FavoriteEventContract.TIME_STR to TEXT,
                 FavoriteEventContract.HOME_TEAM_ID to TEXT,
-                FavoriteEventContract.AWAY_TEAM_ID to TEXT)    }
+                FavoriteEventContract.AWAY_TEAM_ID to TEXT)
+
+        db.createTable(TeamContract.TABLE_FAVORITE_TEAM, true,
+                TeamContract.TEAM_ID to TEXT + PRIMARY_KEY,
+                TeamContract.TEAM_NAME to TEXT,
+                TeamContract.TEAM_BADGE to TEXT,
+                TeamContract.TEAM_FORMED_YEAR to TEXT,
+                TeamContract.TEAM_STADIUM to TEXT,
+                TeamContract.TEAM_DESC to TEXT)
+    }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newInversion: Int) {
         db.dropTable(FavoriteEventContract.TABLE_FAVORITE_EVENT, true)
+        db.dropTable(TeamContract.TABLE_FAVORITE_TEAM, true)
     }
 }
 

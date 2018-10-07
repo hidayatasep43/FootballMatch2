@@ -6,10 +6,22 @@
     <string name="nav_prev_match">Prev. Match</string>
     <string name="nav_next_match">Next Match</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="vs_label">vs</string>
     <string name="goals_label">Goals</string>
     <string name="nav_favorites">Favorites</string>
     <string name="tv_empty_favorite">Belum ada daftar pertandingan yang disukai</string>
+    <string name="nav_match">Match</string>
+    <string name="nav_teams">Teams</string>
+    <string name="cd_image_club">Image Club</string>
+
+    <array name="league">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+    </array>
+
 </resources>

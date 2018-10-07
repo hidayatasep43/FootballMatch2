@@ -5,6 +5,7 @@
     <color name="colorAccent">#2ABF88</color>
     <color name="color_primary_text">#212121</color>
     <color name="text_color_secondary">#424242</color>
+    <color name="color_tab_secondary">#A6FFFFFF</color>
 
 
 </resources>

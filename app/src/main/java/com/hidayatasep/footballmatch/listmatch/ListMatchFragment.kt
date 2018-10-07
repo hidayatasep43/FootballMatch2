@@ -64,7 +64,7 @@ class ListMatchFragment : Fragment(), ListMatchContract.View {
         mSwipeRefreshLayout.isRefreshing = false
     }
 
-    override fun showTeamList(data: List<Event>) {
+    override fun showEventList(data: List<Event>) {
         mSwipeRefreshLayout.isRefreshing = false
         events.clear()
         events.addAll(data)
