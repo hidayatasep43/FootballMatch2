@@ -23,9 +23,7 @@ class ListMatchPresenter (val view: ListMatchContract.View,
         view.presenter = this
     }
 
-    override fun start() {
-        getEventsList("4328")
-    }
+    override fun start() {}
 
     override fun getEventsList(idLeaguage: String?) {
         view.showLoading()

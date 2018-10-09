@@ -51,7 +51,7 @@ class DetailTeamActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedList
         tvStadium.text = team.teamStadium
 
         val overviewFragment: TeamOverviewFragment = TeamOverviewFragment.newInstance(team.teamDescription)
-        val teamPlayerFragment: TeamPlayerFragment = TeamPlayerFragment.newInstance("","")
+        val teamPlayerFragment: TeamPlayerFragment = TeamPlayerFragment.newInstance(team.teamId)
 
         mPagerAdapter = DetailTeamPagerAdapter(supportFragmentManager, overviewFragment, teamPlayerFragment)
         viewpager.adapter = mPagerAdapter

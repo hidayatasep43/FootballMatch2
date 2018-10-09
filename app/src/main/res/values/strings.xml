@@ -14,6 +14,9 @@
     <string name="nav_match">Match</string>
     <string name="nav_teams">Teams</string>
     <string name="cd_image_club">Image Club</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="label_height">Height (m)</string>
+    <string name="label_weight">Weight (Kg)</string>
 
     <array name="league">
         <item>English Premier League</item>
@@ -23,6 +26,15 @@
         <item>French Ligue 1</item>
         <item>Spanish La Liga</item>
     </array>
-    <string name="title_activity_main2">Main2Activity</string>
+
+    <array name="league_id">
+        <item>4328</item>
+        <item>4329</item>
+        <item>4331</item>
+        <item>4332</item>
+        <item>4334</item>
+        <item>4335</item>
+    </array>
+
 
 </resources>

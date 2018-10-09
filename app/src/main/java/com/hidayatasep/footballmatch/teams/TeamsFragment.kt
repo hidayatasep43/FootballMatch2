@@ -70,7 +70,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsContract.View{
         linearLayout {
             lparams (width = matchParent, height = wrapContent)
             orientation = LinearLayout.VERTICAL
-            topPadding = dip(16)
+            topPadding = dip(10)
             leftPadding = dip(16)
             rightPadding = dip(16)
 
