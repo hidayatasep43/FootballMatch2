@@ -5,7 +5,7 @@ import app.helper.LocalPreferences
 import app.helper.TestContextProvider
 import app.webservice.EventResponse
 import com.google.gson.Gson
-import com.hidayatasep.footballmatch.mainactivity.MainActivity
+import com.hidayatasep.footballmatch.MainActivity
 import com.hidayatasep.latihan2.ApiRepository
 import com.hidayatasep.latihan2.TheSportDBApi
 import org.junit.Before

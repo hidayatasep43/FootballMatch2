@@ -12,7 +12,6 @@ interface ListMatchContract {
 
     interface View : BaseView<Presenter> {
         var isActive: Boolean
-
         fun showEventList(data: List<Event>)
     }
 

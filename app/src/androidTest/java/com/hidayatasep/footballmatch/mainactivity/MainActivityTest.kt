@@ -9,6 +9,7 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
+import com.hidayatasep.footballmatch.MainActivity
 import com.hidayatasep.footballmatch.R
 import org.hamcrest.Matchers
 import org.junit.After

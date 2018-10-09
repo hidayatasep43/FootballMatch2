@@ -1,6 +1,7 @@
 package com.hidayatasep.footballmatch.listfavorite
 
 import app.data.Event
+import app.data.Team
 import com.hidayatasep.footballmatch.base.BasePresenter
 import com.hidayatasep.footballmatch.base.BaseView
 
@@ -12,6 +13,7 @@ interface ListFavoriteContract {
 
     interface View : BaseView<Presenter> {
         fun showEventFavoriteList(data: List<Event>)
+        fun showTeamFavoriteList(data: List<Team>)
     }
 
     interface Presenter : BasePresenter {}

@@ -1,6 +1,7 @@
 package com.hidayatasep.footballmatch.mainactivity
 
 import android.support.test.espresso.IdlingResource
+import com.hidayatasep.footballmatch.MainActivity
 
 /**
  * Created by hidayatasep43 on 10/3/2018.

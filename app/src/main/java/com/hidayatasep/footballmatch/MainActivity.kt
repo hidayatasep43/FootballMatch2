@@ -1,4 +1,4 @@
-package com.hidayatasep.footballmatch.mainactivity
+package com.hidayatasep.footballmatch
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import app.helper.LocalPreferences
 import app.helper.replaceFragmentInActivity
 import com.google.gson.Gson
-import com.hidayatasep.footballmatch.R
 import com.hidayatasep.footballmatch.R.id.*
-import com.hidayatasep.footballmatch.listfavorite.ListFavoriteFragment
-import com.hidayatasep.footballmatch.listfavorite.ListFavoritePresenter
+import com.hidayatasep.footballmatch.listfavorite.ListFavoriteMainFragment
 import com.hidayatasep.footballmatch.listmatch.ListMatchMainFragment
 import com.hidayatasep.footballmatch.teams.TeamsFragment
 import com.hidayatasep.footballmatch.teams.TeamsPresenter
@@ -18,8 +16,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var listFavoriteFragment: ListFavoriteFragment
-    private lateinit var listFavoritePresenter: ListFavoritePresenter
     private lateinit var teamsFragment: TeamsFragment
     private lateinit var teamsPresenter: TeamsPresenter
     private lateinit var apiRepository: ApiRepository
@@ -37,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             navigation_favorites -> {
-                replaceFragmentInActivity(listFavoriteFragment, R.id.frame_layout)
+                replaceFragmentInActivity(ListFavoriteMainFragment.newInstance(), R.id.frame_layout)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -52,9 +48,6 @@ class MainActivity : AppCompatActivity() {
                 as ListMatchMainFragment? ?: ListMatchMainFragment.newInstance().also {
             replaceFragmentInActivity(it, R.id.frame_layout)
         }
-
-        listFavoriteFragment = ListFavoriteFragment.newInstance()
-        listFavoritePresenter = ListFavoritePresenter(this, listFavoriteFragment)
 
         apiRepository = ApiRepository()
         gson = Gson()

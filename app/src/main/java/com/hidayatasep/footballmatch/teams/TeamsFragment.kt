@@ -2,6 +2,7 @@ package com.hidayatasep.footballmatch.teams
 
 import android.R
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
@@ -17,6 +18,7 @@ import android.widget.Spinner
 import app.data.Team
 import com.hidayatasep.footballmatch.R.array.league
 import com.hidayatasep.footballmatch.R.color.colorAccent
+import com.hidayatasep.footballmatch.detailteam.DetailTeamActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.ctx
@@ -104,7 +106,9 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsContract.View{
     }
 
     private fun teamItemClicked(team: Team) {
-
+        val intent = Intent(context, DetailTeamActivity::class.java)
+        intent.putExtra("team", team)
+        startActivity(intent)
     }
 
     companion object {
