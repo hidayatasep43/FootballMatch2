@@ -13,11 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import app.data.Player
+import app.webservice.ApiRepository
 import app.webservice.PlayersResponse
 import com.google.gson.Gson
 import com.hidayatasep.footballmatch.R
 import com.hidayatasep.footballmatch.detailplayer.DetailPlayerActivity
-import com.hidayatasep.latihan2.ApiRepository
 import com.hidayatasep.latihan2.TheSportDBApi
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
@@ -35,7 +35,7 @@ class TeamPlayerFragment : Fragment(), AnkoComponent<Context> {
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private var gson:Gson = Gson()
-    private var apiRepository:ApiRepository = ApiRepository()
+    private var apiRepository: ApiRepository = ApiRepository()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,9 +97,12 @@ class TeamPlayerFragment : Fragment(), AnkoComponent<Context> {
 
             uiThread {
                 mSwipeRefreshLayout.isRefreshing = false
-                players.clear()
-                players.addAll(data.player)
-                mAdapter.notifyDataSetChanged()
+                if(data.player != null) {
+                    players.clear()
+                    players.addAll(data.player)
+                    mAdapter.notifyDataSetChanged()
+                }
+
             }
         }
     }

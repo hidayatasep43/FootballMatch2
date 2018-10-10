@@ -1,4 +1,4 @@
-package com.hidayatasep.latihan2
+package app.webservice
 
 import java.net.URL
 

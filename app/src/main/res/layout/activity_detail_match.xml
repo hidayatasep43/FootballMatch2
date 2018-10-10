@@ -18,7 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:textSize="17sp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/text_color_secondary"
+            android:gravity="center_horizontal"
+            android:lineSpacingMultiplier="1.1"
             tools:text="Saturday, 29 Januari 2010"
             />
 

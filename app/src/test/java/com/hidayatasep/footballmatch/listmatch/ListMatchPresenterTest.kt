@@ -1,12 +1,11 @@
 package com.hidayatasep.footballmatch.listmatch
 
 import app.data.Event
-import app.helper.LocalPreferences
 import app.helper.TestContextProvider
 import app.webservice.EventResponse
 import com.google.gson.Gson
 import com.hidayatasep.footballmatch.MainActivity
-import com.hidayatasep.latihan2.ApiRepository
+import app.webservice.ApiRepository
 import com.hidayatasep.latihan2.TheSportDBApi
 import org.junit.Before
 import org.junit.Test

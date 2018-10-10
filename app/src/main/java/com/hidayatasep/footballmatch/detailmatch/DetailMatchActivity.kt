@@ -6,29 +6,37 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import app.data.Event
 import app.data.FavoriteEventContract
 import app.data.database
-import app.helper.LocalPreferences
 import app.helper.Utils
+import app.webservice.ApiRepository
+import app.webservice.TeamResponse
+import com.google.gson.Gson
 import com.hidayatasep.footballclub.GlideApp
 import com.hidayatasep.footballmatch.R
 import com.hidayatasep.footballmatch.R.drawable.ic_add_to_favorites
 import com.hidayatasep.footballmatch.R.drawable.ic_added_to_favorites
 import com.hidayatasep.footballmatch.R.id.add_to_favorite
 import com.hidayatasep.footballmatch.R.menu.detail_menu
+import com.hidayatasep.latihan2.TheSportDBApi
 import kotlinx.android.synthetic.main.activity_detail_match.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class DetailMatchActivity : AppCompatActivity() {
 
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
     private lateinit var event: Event
+    private val request = ApiRepository()
+    private val gson = Gson()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,20 +48,12 @@ class DetailMatchActivity : AppCompatActivity() {
 
         event = intent.getParcelableExtra<Event>("event")
 
-        tv_time_match.text = event.strDateEvent
+        tv_time_match.text = Utils.convertEventTimeToGMT(event.dateEvent, event.strTime)
         tv_score_home.text = event.homeScore
         tv_score_away.text = event.awayScore
 
-        val localPreferences = LocalPreferences.getInstance(this)
-        val imageHome = localPreferences.getString(event.idHomeTeam, "")
-        val imageAway = localPreferences.getString(event.idAwayTeam, "")
-        GlideApp.with(this)
-                .load(imageHome)
-                .into(image_club_home)
-        GlideApp.with(this)
-                .load(imageAway)
-                .into(image_club_away)
-
+        setImageTeam(event.idHomeTeam, image_club_home)
+        setImageTeam(event.idAwayTeam, image_club_away)
         tv_club_home.text = event.homeTeam
         tv_club_away.text = event.awayTeam
         tvDetailGoalsHome.text = Utils.replaceSemiColonToEnter(event.homeGoalDetails)
@@ -171,6 +171,21 @@ class DetailMatchActivity : AppCompatActivity() {
             snackbar(nestedScrolView, "Added to favorite").show()
         } catch (e: SQLiteConstraintException){
             snackbar(nestedScrolView, e.localizedMessage).show()
+        }
+    }
+
+    private fun setImageTeam(idTeam: String?, imageView: ImageView) {
+        doAsync {
+            val data = gson.fromJson(request
+                    .doRequest(TheSportDBApi.getTeamsById(idTeam)),
+                    TeamResponse::class.java
+            )
+
+            uiThread {
+                GlideApp.with(imageView.context)
+                        .load(data.teams[0].teamBadge)
+                        .into(imageView)
+            }
         }
     }
 

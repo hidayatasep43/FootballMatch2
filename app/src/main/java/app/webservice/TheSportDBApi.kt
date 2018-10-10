@@ -9,7 +9,6 @@ import com.hidayatasep.footballmatch.BuildConfig
  */
 object TheSportDBApi {
 
-    //English Premier League
     fun getTeams(league: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
                 .appendPath("api")
@@ -53,6 +52,42 @@ object TheSportDBApi {
                 .appendPath("json")
                 .appendPath(BuildConfig.TSDB_API_KEY)
                 .appendPath("lookup_all_players.php")
+                .appendQueryParameter("id", idTeam)
+                .build()
+                .toString()
+    }
+
+    fun getTeamSearch(searchTeam: String?): String {
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+                .appendPath("api")
+                .appendPath("v1")
+                .appendPath("json")
+                .appendPath(BuildConfig.TSDB_API_KEY)
+                .appendPath("searchteams.php")
+                .appendQueryParameter("t", searchTeam)
+                .build()
+                .toString()
+    }
+
+    fun getMatchSearch(searchTeam: String?): String {
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+                .appendPath("api")
+                .appendPath("v1")
+                .appendPath("json")
+                .appendPath(BuildConfig.TSDB_API_KEY)
+                .appendPath("searchevents.php")
+                .appendQueryParameter("e", searchTeam)
+                .build()
+                .toString()
+    }
+
+    fun getTeamsById(idTeam: String?): String {
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+                .appendPath("api")
+                .appendPath("v1")
+                .appendPath("json")
+                .appendPath(BuildConfig.TSDB_API_KEY)
+                .appendPath("lookupteam.php")
                 .appendQueryParameter("id", idTeam)
                 .build()
                 .toString()

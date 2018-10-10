@@ -26,8 +26,13 @@
             android:name=".detailteam.DetailTeamActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".detailplayer.DetailPlayerActivity">
+        <activity
+            android:name=".detailplayer.DetailPlayerActivity">
         </activity>
+        <activity
+            android:name=".search.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

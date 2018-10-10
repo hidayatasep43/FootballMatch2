@@ -10,9 +10,9 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import app.webservice.ApiRepository
 import com.google.gson.Gson
 import com.hidayatasep.footballmatch.R
-import com.hidayatasep.latihan2.ApiRepository
 
 
 class ListMatchMainFragment : Fragment() {

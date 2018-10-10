@@ -13,7 +13,6 @@ import android.view.MenuItem
 import app.data.Team
 import app.data.TeamContract
 import app.data.database
-import app.helper.LocalPreferences
 import com.hidayatasep.footballclub.GlideApp
 import com.hidayatasep.footballmatch.R
 import kotlinx.android.synthetic.main.activity_detail_team.*
@@ -56,13 +55,6 @@ class DetailTeamActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedList
         mPagerAdapter = DetailTeamPagerAdapter(supportFragmentManager, overviewFragment, teamPlayerFragment)
         viewpager.adapter = mPagerAdapter
         tabLayout.setupWithViewPager(viewpager)
-
-
-        val localPreferences = LocalPreferences.getInstance(this)
-        val imageClub = localPreferences.getString(team.teamId, "")
-        if(imageClub.isNullOrEmpty()) {
-            localPreferences.put(team.teamId, team.teamBadge!!)
-        }
 
         favoriteState()
     }

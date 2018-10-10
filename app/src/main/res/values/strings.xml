@@ -17,6 +17,9 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="label_height">Height (m)</string>
     <string name="label_weight">Weight (Kg)</string>
+    <string name="label_search_not_found">Pencarian tidak ditemukan</string>
+    <string name="cd_button_reset_search">Button reset search</string>
+    <string name="menu_search">Search</string>
 
     <array name="league">
         <item>English Premier League</item>

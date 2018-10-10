@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import app.data.Event
+import app.helper.Utils
 import com.hidayatasep.footballmatch.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_list_match.view.*
@@ -31,7 +32,6 @@ class ListMatchAdapter (private val context: Context,
         holder.bindItem(events[position], listener)
     }
 
-
     class ListMatchViewHolder(override val containerView: View)
         : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
@@ -40,7 +40,7 @@ class ListMatchAdapter (private val context: Context,
             itemView.tvHomeScore.text = event.homeScore
             itemView.tvAwayClub.text = event.awayTeam
             itemView.tvAwayScore.text = event.awayScore
-            itemView.tvTimeMatch.text = event.strDateEvent
+            itemView.tvTimeMatch.text = Utils.convertEventTimeToGMT(event.dateEvent, event.strTime)
             itemView.setOnClickListener {
                 listener(event)
             }

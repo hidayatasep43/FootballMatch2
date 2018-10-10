@@ -84,10 +84,10 @@ data class Event(
         var awayFormation: String? = null,
 
         @SerializedName("intHomeShots")
-        var homeShots: String? = "-",
+        var homeShots: String? = null,
 
         @SerializedName("intAwayShots")
-        var awayShots: String? = "-",
+        var awayShots: String? = null,
 
         @SerializedName("dateEvent")
         var dateEvent: String? = null,
@@ -95,7 +95,7 @@ data class Event(
         @SerializedName("strDate")
         var strDateEvent: String? = null,
 
-        @SerializedName("strTIme")
+        @SerializedName("strTime")
         var strTime: String? = null,
 
         @SerializedName("idHomeTeam")

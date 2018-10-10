@@ -23,7 +23,6 @@ class ListMatchFragment : Fragment(), ListMatchContract.View {
 
     override lateinit var presenter: ListMatchContract.Presenter
 
-
     override var isActive: Boolean = false
         get() = isAdded
 
