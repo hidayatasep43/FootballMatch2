@@ -28,6 +28,7 @@
             tools:text="Sat, 3 Maret 2018\n22:30"/>
 
         <ImageButton
+            android:id="@+id/btnAddReminder"
             android:layout_width="33dp"
             android:layout_height="33dp"
             android:src="@drawable/ic_add_alert"

@@ -11,6 +11,7 @@ import com.hidayatasep.footballmatch.base.BaseView
 interface TeamsContract {
 
     interface View : BaseView<Presenter> {
+        var isActive: Boolean
         fun showTeamList(data: List<Team>)
     }
 

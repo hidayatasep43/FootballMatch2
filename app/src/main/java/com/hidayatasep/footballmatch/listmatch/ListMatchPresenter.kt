@@ -54,4 +54,8 @@ class ListMatchPresenter (val view: ListMatchContract.View,
         }
     }
 
+    override fun getTypeMatch(): Int {
+        return typeList
+    }
+
 }

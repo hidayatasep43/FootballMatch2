@@ -15,6 +15,23 @@ object Utils {
         return text.replace(";", "\n")
     }
 
+    fun replaceKgText(text: String?): String {
+        if(text == null) return ""
+        val temp = text.toLowerCase()
+        return temp.replace("kg", "")
+    }
+
+    fun replaceMeterText(text: String?): String {
+        if(text == null) return ""
+        val temp = text.toLowerCase()
+        if(temp.contains('m')) {
+            val index = temp.indexOf("m")
+            return temp.removeRange(index, temp.length).trim()
+        } else {
+            return temp
+        }
+    }
+
     fun convertEventTimeToGMT(dateEvent: String?, strTime: String?) : String?{
         val dateTime = dateEvent + " " + strTime
         val dateFormatInput = SimpleDateFormat("yyyy-MM-dd HH:mm:ssz",
@@ -28,6 +45,19 @@ object Utils {
             e.printStackTrace()
         }
         return dateEvent
+    }
+
+    fun convertEventTimeToGMTTimemillis(dateEvent: String?, strTime: String?) : Long{
+        val dateTime = dateEvent + " " + strTime
+        val dateFormatInput = SimpleDateFormat("yyyy-MM-dd HH:mm:ssz",
+                Locale.getDefault())
+        try {
+            val tempFormat = dateFormatInput.parse(dateTime)
+            return tempFormat.time
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return Calendar.getInstance().timeInMillis
     }
 
 }

@@ -27,6 +27,9 @@ import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
 class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsContract.View{
 
+    override var isActive: Boolean = false
+        get() = isAdded
+
     override lateinit var presenter: TeamsContract.Presenter
 
     private var teams: MutableList<Team> = mutableListOf()

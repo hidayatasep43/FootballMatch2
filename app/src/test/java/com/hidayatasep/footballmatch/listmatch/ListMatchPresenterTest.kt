@@ -2,10 +2,9 @@ package com.hidayatasep.footballmatch.listmatch
 
 import app.data.Event
 import app.helper.TestContextProvider
+import app.webservice.ApiRepository
 import app.webservice.EventResponse
 import com.google.gson.Gson
-import com.hidayatasep.footballmatch.MainActivity
-import app.webservice.ApiRepository
 import com.hidayatasep.latihan2.TheSportDBApi
 import org.junit.Before
 import org.junit.Test
@@ -26,8 +25,6 @@ class ListMatchPresenterTest {
 
     @Mock private lateinit var apiRepository: ApiRepository
 
-    @Mock private lateinit var localPreferences: LocalPreferences
-
     private lateinit var presenter: ListMatchPresenter
 
     @Before
@@ -35,14 +32,14 @@ class ListMatchPresenterTest {
         MockitoAnnotations.initMocks(this)
 
         // Get a reference to the class under test
-        presenter = ListMatchPresenter(view, apiRepository, gson, localPreferences, MainActivity.TYPE_LIST_PREV)
+        presenter = ListMatchPresenter(view, apiRepository, gson, ListMatchMainFragment.TYPE_LIST_PREV, TestContextProvider())
 
         `when`(view.isActive).thenReturn(true)
     }
 
     @Test fun createPresenter_setsThePresenterToView() {
         // Get a reference to the class under test
-        presenter = ListMatchPresenter(view, apiRepository, gson, localPreferences, MainActivity.TYPE_LIST_PREV, TestContextProvider())
+        presenter = ListMatchPresenter(view, apiRepository, gson, ListMatchMainFragment.TYPE_LIST_PREV, TestContextProvider())
 
         // Then the presenter is set to the view
         verify(view).presenter = presenter
@@ -50,7 +47,7 @@ class ListMatchPresenterTest {
 
    @Test
     fun tesGetEventsList() {
-        presenter = ListMatchPresenter(view, apiRepository, gson, localPreferences, MainActivity.TYPE_LIST_PREV, TestContextProvider())
+        presenter = ListMatchPresenter(view, apiRepository, gson, ListMatchMainFragment.TYPE_LIST_PREV, TestContextProvider())
 
         val events: MutableList<Event> = mutableListOf()
         val response = EventResponse(events)

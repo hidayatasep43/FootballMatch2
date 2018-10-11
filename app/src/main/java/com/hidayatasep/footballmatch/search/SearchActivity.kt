@@ -36,6 +36,17 @@ class SearchActivity : AppCompatActivity(), SearchActivityContract.View{
     private lateinit var events: MutableList<Event>
     private lateinit var mEventAdapter: ListMatchAdapter
 
+    /**
+     * Listener for clicks on event in the ListView.
+     */
+    internal var itemListener: ListMatchAdapter.EventItemListener = object : ListMatchAdapter.EventItemListener {
+        override fun onEventClick(event: Event) {
+            eventItemClicked(event)
+        }
+
+        override fun onAddReminderEventClick(event: Event) {}
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -54,9 +65,7 @@ class SearchActivity : AppCompatActivity(), SearchActivityContract.View{
         if (typeSearch == TYPE_SEARCH_MATCH) {
             searchEditText.hint = "Search Match..."
             events = mutableListOf()
-            mEventAdapter = ListMatchAdapter(this, events)  {
-                event: Event -> eventItemClicked(event)
-            }
+            mEventAdapter = ListMatchAdapter(this, events, false, itemListener)
             recycler_view.adapter = mEventAdapter
         } else {
             searchEditText.hint = "Search Team..."

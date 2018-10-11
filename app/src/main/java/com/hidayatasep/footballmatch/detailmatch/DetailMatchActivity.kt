@@ -182,9 +182,11 @@ class DetailMatchActivity : AppCompatActivity() {
             )
 
             uiThread {
-                GlideApp.with(imageView.context)
-                        .load(data.teams[0].teamBadge)
-                        .into(imageView)
+                if (!isDestroyed) {
+                    GlideApp.with(imageView.context)
+                            .load(data.teams[0].teamBadge)
+                            .into(imageView)
+                }
             }
         }
     }

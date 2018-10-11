@@ -22,7 +22,7 @@ object TheSportDBApi {
     }
 
     fun getPrevMatch(idLeague: String?): String {
-        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+        /*return Uri.parse(BuildConfig.BASE_URL).buildUpon()
                 .appendPath("api")
                 .appendPath("v1")
                 .appendPath("json")
@@ -30,7 +30,8 @@ object TheSportDBApi {
                 .appendPath("eventspastleague.php")
                 .appendQueryParameter("id", idLeague)
                 .build()
-                .toString()
+                .toString()*/
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/eventspastleague.php?id=" + idLeague
     }
 
     fun getNextMatch(idLeague: String?): String {

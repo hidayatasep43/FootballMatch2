@@ -96,13 +96,14 @@ class TeamPlayerFragment : Fragment(), AnkoComponent<Context> {
             )
 
             uiThread {
-                mSwipeRefreshLayout.isRefreshing = false
-                if(data.player != null) {
-                    players.clear()
-                    players.addAll(data.player)
-                    mAdapter.notifyDataSetChanged()
+                if(isAdded) {
+                    mSwipeRefreshLayout.isRefreshing = false
+                    if(data.player != null) {
+                        players.clear()
+                        players.addAll(data.player)
+                        mAdapter.notifyDataSetChanged()
+                    }
                 }
-
             }
         }
     }

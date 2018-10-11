@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import app.data.Player
+import app.helper.Utils
 import com.hidayatasep.footballclub.GlideApp
 import com.hidayatasep.footballmatch.R
 import kotlinx.android.synthetic.main.activity_detail_player.*
@@ -23,8 +24,8 @@ class DetailPlayerActivity : AppCompatActivity() {
         GlideApp.with(this)
                 .load(player.playerImage)
                 .into(imagePlayer)
-        tvHeight.text = player.playerHeight
-        tvWeight.text = player.playerWeight
+        tvHeight.text = Utils.replaceMeterText(player.playerHeight)
+        tvWeight.text = Utils.replaceKgText(player.playerWeight)
         tvPosition.text = player.playerPosition
         tvOverviewPlayer.text = player.playerDescription
     }

@@ -17,6 +17,7 @@ interface ListMatchContract {
 
     interface Presenter : BasePresenter {
         fun getEventsList(idLeaguage: String?)
+        fun getTypeMatch(): Int
     }
 
 }

@@ -40,6 +40,19 @@ class ListFavoriteFragment : Fragment(), ListFavoriteContract.View, AnkoComponen
     private lateinit var teams: MutableList<Team>
     private var typeList: Int = ListFavoriteMainFragment.TYPE_FAVORITE_MATCH
 
+    /**
+     * Listener for clicks on event in the ListView.
+     */
+    internal var itemListener: ListMatchAdapter.EventItemListener = object : ListMatchAdapter.EventItemListener {
+        override fun onEventClick(event: Event) {
+            eventItemClicked(event)
+        }
+
+        override fun onAddReminderEventClick(event: Event) {}
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -57,9 +70,7 @@ class ListFavoriteFragment : Fragment(), ListFavoriteContract.View, AnkoComponen
         super.onActivityCreated(savedInstanceState)
         if (typeList == ListFavoriteMainFragment.TYPE_FAVORITE_MATCH) {
             events = mutableListOf()
-            mAdapterMatch = ListMatchAdapter(context as FragmentActivity, events) { event: Event ->
-                eventItemClicked(event)
-            }
+            mAdapterMatch = ListMatchAdapter(context as FragmentActivity, events, false, itemListener)
             mRecyclerView.adapter = mAdapterMatch
         } else {
             teams = mutableListOf()
